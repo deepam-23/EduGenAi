@@ -1,40 +1,37 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Login - Loan Predictor</title>
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body { background: linear-gradient(to bottom right, #0f172a, #1e293b); color: white; }
-    .btn {
-      background: linear-gradient(90deg, #8b5cf6, #6d28d9);
-      color: white;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .btn:hover { opacity: 0.9; }
-  </style>
+    <title>Login - QuizGenie</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="flex items-center justify-center min-h-screen">
-  <div class="flex bg-gray-800 rounded-3xl shadow-2xl overflow-hidden">
-    <img src="https://tse4.mm.bing.net/th/id/OIP.Jd6QQs5uBXhwZY5LrdhJSAHaE7?pid=Api&P=0&h=180" alt="Login Image" class="w-1/2 object-cover">
-    <div class="p-10 w-1/2">
-      <h2 class="text-3xl font-bold text-yellow-400 mb-6 text-center">Login</h2>
-      {% if error %}
-        <p class="text-red-500 text-center mb-4">{{ error }}</p>
-      {% endif %}
-      <form method="POST" class="space-y-4">
-        <div>
-          <label>Email</label>
-          <input type="email" name="email" class="w-full p-3 rounded-lg text-black" placeholder="Enter email" required>
-        </div>
-        <div>
-          <label>Password</label>
-          <input type="password" name="password" class="w-full p-3 rounded-lg text-black" placeholder="Enter password" required>
-        </div>
-        <button type="submit" class="btn w-full px-6 py-3 rounded-full mt-4">Login</button>
-      </form>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-xl shadow-md w-96">
+        <h1 class="text-2xl font-semibold text-center mb-6">Login</h1>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="p-2 rounded mb-3 {{ 'bg-red-200 text-red-700' if category == 'error' else 'bg-green-200 text-green-700' }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('login') }}" method="POST" class="space-y-4">
+            <input type="email" name="email" placeholder="Email" required class="w-full border p-2 rounded">
+            <input type="password" name="password" placeholder="Password" required class="w-full border p-2 rounded">
+
+            <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 rounded">
+                Login
+            </button>
+        </form>
+
+        <p class="text-center text-sm mt-4">
+            Don’t have an account? 
+            <a href="{{ url_for('signup') }}" class="text-blue-500 hover:underline">Sign Up</a>
+        </p>
     </div>
-  </div>
 </body>
 </html>

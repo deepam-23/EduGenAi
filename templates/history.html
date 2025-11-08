@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>History</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 text-white p-6">
+  <div class="max-w-4xl mx-auto bg-black bg-opacity-40 p-6 rounded-lg">
+    <h1 class="text-2xl font-bold mb-4">Quiz History</h1>
+    {% if history %}
+      <table class="w-full">
+        <thead><tr><th>When</th><th>Score</th><th>Total</th></tr></thead>
+        <tbody>
+          {% for h in history %}
+            <tr class="border-t border-gray-700">
+              <td class="py-2">{{ h.taken_at }}</td>
+              <td class="py-2">{{ h.score }}</td>
+              <td class="py-2">{{ h.total }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No history found.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

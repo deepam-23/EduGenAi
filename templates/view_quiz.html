@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Preview Quiz</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 text-white p-6">
+  <div class="max-w-3xl mx-auto bg-black bg-opacity-40 p-6 rounded-lg">
+    <h1 class="text-3xl font-bold mb-4">Preview Generated Quiz</h1>
+
+    <div class="mb-4">
+      {% for q in quiz %}
+        <div class="mb-3 p-3 bg-gray-800 rounded">
+          <div class="font-semibold">{{ loop.index }}. {{ q.question }}</div>
+          <div class="mt-2 space-y-1">
+            {% for opt in q.options %}
+              <div class="flex items-center">
+                <div class="mr-3 text-sm">{{ ['A','B','C','D'][loop.index0] }}</div>
+                <div>{{ opt }}</div>
+                {% if q.answer == ['A','B','C','D'][loop.index0] %}
+                  <div class="ml-auto text-green-400 font-bold">✅</div>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="flex gap-3">
+      <a href="{{ url_for('download_quiz') }}?with_answers=1" class="px-4 py-2 rounded bg-green-600">Download PDF (with answers)</a>
+      <a href="{{ url_for('download_quiz') }}?with_answers=0" class="px-4 py-2 rounded bg-blue-600">Download PDF (no answers)</a>
+      <a href="{{ url_for('take_quiz') }}" class="px-4 py-2 rounded bg-purple-600">Take Quiz</a>
+      <a href="{{ url_for('generate_quiz') }}" class="px-4 py-2 rounded bg-gray-700">Generate Another</a>
+    </div>
+  </div>
+</body>
+</html>
