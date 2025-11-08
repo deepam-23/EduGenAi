@@ -1,66 +1,101 @@
+/* General body */
 body, html {
     margin: 0;
     padding: 0;
+    height: 100%;
     font-family: Arial, sans-serif;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 50px;
-    background-color: rgba(0,0,0,0.7);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 100;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.logo {
-    height: 50px;
-}
-
+/* Hero background */
 .hero {
+    background-image: url('https://tse3.mm.bing.net/th/id/OIP.0vFEvYw1BlqdN2C98ESG8wHaEo?pid=Api&P=0&h=180');
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
 }
 
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: rgba(0,0,0,0.6); /* semi-transparent overlay */
+}
+
+.logo-container img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links li a:hover {
+    color: #FFD700;
+}
+
+/* Hero Content */
 .hero-content {
-    background-color: rgba(0,0,0,0.5);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3); /* overlay for readability */
     padding: 20px;
-    border-radius: 10px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: #ff6600;
-    color: white;
+    padding: 12px 30px;
+    background-color: #FFD700;
+    color: black;
+    font-weight: bold;
     text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
 }
 
-.quiz-output {
-    margin-top: 30px;
-    text-align: left;
+.btn:hover {
+    background-color: #FFA500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
 }

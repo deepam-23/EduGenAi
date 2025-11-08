@@ -1,18 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login - EduGenAi</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="utf-8">
+  <title>Login - Loan Predictor</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body { background: linear-gradient(to bottom right, #0f172a, #1e293b); color: white; }
+    .btn {
+      background: linear-gradient(90deg, #8b5cf6, #6d28d9);
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover { opacity: 0.9; }
+  </style>
 </head>
-<body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form method="POST">
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
+<body class="flex items-center justify-center min-h-screen">
+  <div class="flex bg-gray-800 rounded-3xl shadow-2xl overflow-hidden">
+    <img src="https://tse4.mm.bing.net/th/id/OIP.Jd6QQs5uBXhwZY5LrdhJSAHaE7?pid=Api&P=0&h=180" alt="Login Image" class="w-1/2 object-cover">
+    <div class="p-10 w-1/2">
+      <h2 class="text-3xl font-bold text-yellow-400 mb-6 text-center">Login</h2>
+      {% if error %}
+        <p class="text-red-500 text-center mb-4">{{ error }}</p>
+      {% endif %}
+      <form method="POST" class="space-y-4">
+        <div>
+          <label>Email</label>
+          <input type="email" name="email" class="w-full p-3 rounded-lg text-black" placeholder="Enter email" required>
+        </div>
+        <div>
+          <label>Password</label>
+          <input type="password" name="password" class="w-full p-3 rounded-lg text-black" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn w-full px-6 py-3 rounded-full mt-4">Login</button>
+      </form>
     </div>
+  </div>
 </body>
 </html>

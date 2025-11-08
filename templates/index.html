@@ -1,28 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>EduGenAi</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="utf-8">
+  <title>EduGenAi</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #0f0f1a, #2c0f3d);
+      background-image: url('https://tse3.mm.bing.net/th/id/OIP.0vFEvYw1BlqdN2C98ESG8wHaEo?pid=Api&P=0&h=180');
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    .btn { 
+      background: linear-gradient(90deg, #8b5cf6, #6d28d9); 
+      color: white; 
+      font-weight: bold; 
+      transition: 0.3s; 
+    }
+    .btn:hover { opacity: 0.9; }
+
+    .logo { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+
+    /* Hero section */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(0,0,0,0.6);
+      padding: 2rem;
+      margin-top: 1rem;
+      border-radius: 1rem;
+    }
+
+    /* About section */
+    .about {
+      max-width: 800px;
+      margin: 4rem auto;
+      background: rgba(0,0,0,0.6);
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+
+    nav { background: rgba(0,0,0,0.5); }
+  </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav>
-        <img src="https://tse3.mm.bing.net/th/id/OIP.uB5bFEOsT44ZCOnPs_gAhwHaHa?pid=Api&P=0&h=180" class="logo">
-        <ul>
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('login') }}">Login</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-        </ul>
-    </nav>
 
-    <!-- Hero Section -->
-    <div class="hero" style="background-image: url('https://tse1.mm.bing.net/th/id/OIP.sa71CFdFnIDNTeRVxa7sWgHaEJ?pid=Api&P=0&h=180');">
-        <div class="hero-content">
-            <h1>Welcome to EduGenAi</h1>
-            <p>Generate quizzes from PDFs easily.</p>
-            <a href="{{ url_for('login') }}" class="btn">Get Started</a>
-        </div>
-    </div>
+<!-- Navbar -->
+<nav class="w-full flex justify-between items-center p-6">
+  <div class="flex items-center space-x-3">
+    <img src="https://tse3.mm.bing.net/th/id/OIP.36T9DeeEXxaJTpfICkBRaQHaE7?pid=Api&P=0&h=180" class="logo" alt="EduGenAi Logo">
+    <h1 class="text-2xl font-bold text-purple-400">EduGenAi</h1>
+  </div>
+  <div class="space-x-4">
+    <a href="#hero" class="btn px-4 py-2 rounded-full">Home</a>
+    <a href="{{ url_for('login') }}" class="btn px-4 py-2 rounded-full">Login</a>
+    <a href="#about" class="btn px-4 py-2 rounded-full">About</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<div id="hero" class="hero">
+  <h1 class="text-4xl font-bold text-purple-300 mb-4">Welcome to EduGenAi</h1>
+  <p class="text-lg text-gray-200 mb-6">Upload PDFs and generate quizzes instantly.</p>
+  <a href="{{ url_for('login') }}" class="btn px-8 py-3 rounded-full">Get Started</a>
+</div>
+
+<!-- About Section -->
+<div id="about" class="about">
+  <h2 class="text-3xl font-bold text-purple-300 mb-4">About EduGenAi</h2>
+  <p class="text-white text-lg mb-4">
+    EduGenAi is a web-based platform that uses AI to generate quizzes from PDFs automatically.
+    Teachers can save hours of preparation time, and students can access personalized quizzes
+    for self-assessment. The system leverages Python, Flask, and PDF parsing for generating
+    questions dynamically.
+  </p>
+  <p class="text-white text-lg">
+    Key Features:
+    <ul class="list-disc list-inside mt-2">
+      <li>AI-powered quiz and answer generation</li>
+      <li>Multiple-choice question options</li>
+      <li>Downloadable quizzes for offline use</li>
+      <li>User-friendly interface with black-purple theme</li>
+      <li>Future-ready dashboard and analytics support</li>
+    </ul>
+  </p>
+</div>
+
 </body>
 </html>
