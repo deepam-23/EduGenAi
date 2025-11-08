@@ -12,15 +12,7 @@ This AI-powered assessment and quiz tool is your brainchild! It tackles the chal
 
 
 
-## Technologies Used
-- **Python**
-- **Langchain**
-- **Chromadb**
-- **Google Gemini**
-- **Streamlit**
-
-## Features:
-- **AI-Generated Quizzes:** This tool uses artificial intelligence to automatically create quizzes based on your study materials, like textbooks or research papers.
+ ** This tool uses artificial intelligence to automatically create quizzes based on your study materials, like textbooks or research papers.
 - **Instant Feedback:** Get instant feedback on your answers, so you can see what you aced and what needs more work.
 - **Comprehensive Explanations:** In-depth explanations for each question help you understand why answers are correct and how to avoid mistakes.
 - **Tailored Learning Experience:** Quizzes are tailored to your specific study materials, ensuring they cover exactly what you're learning.
