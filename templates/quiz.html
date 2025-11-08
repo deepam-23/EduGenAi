@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('login') }}">Generate Quiz</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-content">
+        <h1>Quiz Generation</h1>
+        <p>Upload your PDF and generate quizzes below:</p>
+
+        <form method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 15px; width: 400px;">
+            <input type="file" name="pdf" accept="application/pdf" required>
+            <input type="text" name="topic" placeholder="Quiz Topic" required style="padding:10px; font-size:16px;">
+            <input type="number" name="num_questions" placeholder="Number of Questions" min="1" max="50" required style="padding:10px; font-size:16px;">
+            <button type="submit" class="btn">Generate Quiz</button>
+        </form>
+
+        {% if quiz_results %}
+            <div class="quiz-output">
+                <h2>Generated Quiz:</h2>
+                <ul>
+                    {% for q in quiz_results %}
+                        <li>{{ q }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

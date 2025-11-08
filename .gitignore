@@ -1,0 +1,13 @@
+# Sensitive files
+app/service_account.json
+
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# PDFs or other large files
+*.pdf
+app/service_account

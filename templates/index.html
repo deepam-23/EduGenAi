@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EduGenAi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <img src="https://tse3.mm.bing.net/th/id/OIP.uB5bFEOsT44ZCOnPs_gAhwHaHa?pid=Api&P=0&h=180" class="logo">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero" style="background-image: url('https://tse1.mm.bing.net/th/id/OIP.sa71CFdFnIDNTeRVxa7sWgHaEJ?pid=Api&P=0&h=180');">
+        <div class="hero-content">
+            <h1>Welcome to EduGenAi</h1>
+            <p>Generate quizzes from PDFs easily.</p>
+            <a href="{{ url_for('login') }}" class="btn">Get Started</a>
+        </div>
+    </div>
+</body>
+</html>
